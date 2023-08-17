@@ -1,16 +1,40 @@
-<table style="border: 0cap; margin: auto;" >
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items">
-        <td>{{ item }}</td>
-        <td><button (click)="deleteItem(item)">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <input [(ngModel)]="newItem" />
-  <button (click)="addItem()">Add</button>
+<h2>Users List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+ <tbody>
+  <tr *ngFor="let user of newServis.users; let i = index">
+    <td>
+      <input *ngIf="user.editMode" type="text" [(ngModel)]="editUser.name">
+      <span *ngIf="!user.editMode">{{ user.name }}</span>
+    </td>
+    <td>
+      <input *ngIf="user.editMode" type="text" [(ngModel)]="editUser.phone" name="phone{{i}}" 
+             pattern="[0-9]{10}" title="Phone number must be 10 digits">
+            <span *ngIf="!user.editMode">{{ user.phone }}</span>
+    </td>
+    <td>
+      <input *ngIf="user.editMode" type="email" [(ngModel)]="editUser.email" name="email{{i}}">
+      <span *ngIf="!user.editMode">{{ user.email }}</span>
+    </td>
+    <td>
+      
+      <div *ngIf="isSameUser">
+        <button *ngIf="!user.editMode" type="button" (click)="edit(user,i)">edit</button>
+      </div>
+      <button *ngIf="user.editMode" type="button" (click)="save(user,i)">save </button>
+     
+      <button *ngIf="user.editMode" type="button" (click)="cancel(user)">cancel</button>
+      <button *ngIf="user.editMode" type="button" (click)="delete(user,i)" style="background-color: red;">delete</button>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+

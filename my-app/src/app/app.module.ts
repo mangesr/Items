@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { ShowsComponent } from './shows/shows.component';
 import { FormsModule } from '@angular/forms';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { ChildOutputComponent } from './child-output/child-output.component';
 
 
 @NgModule({
@@ -13,11 +16,18 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     FormComponent,
     ShowsComponent,
+    ParentComponent,
+    ChildComponent,
+    ChildOutputComponent,
+    
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
