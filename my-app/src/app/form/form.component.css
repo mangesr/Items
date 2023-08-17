@@ -1,0 +1,39 @@
+/* styles.css */
+form {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #8855ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  h2 {
+    padding-left:8px;
+    color: #8855ff;
+    
+  }
+
+ label{
+  color: #8855ff;
+ }
+
+
+ h4{
+  color: red;
+ }

@@ -1,0 +1,19 @@
+<!-- >
+
+
+<br> -->
+
+<!-- <app-child [param]="rubi"> </app-child> -->
+
+
+<p>parent works!</p>
+
+
+
+<app-child-output  (newItemEvent)="addItem($event)"></app-child-output><br><br>
+<button type="button" (click)="delete()"> delete </button>
+
+
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>

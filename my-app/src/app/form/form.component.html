@@ -1,5 +1,47 @@
+<h2>Users Form</h2>
 
+<form [formGroup]="newGroup" (ngSubmit)="addUser()">
 
+  <br><br>
+
+  <label>
+    Name:
+    <br>
+    <input formControlName="name">
+  </label>
+  <div *ngIf="newGroup.get('name')?.invalid && (newGroup.get('name')?.dirty || newGroup.get('name')?.touched)">
+    <div *ngIf="newGroup.get('name')?.hasError('required')">Name is required.</div>
+  </div>
+  <br><br>
+
+  <label>
+    Phone:
+    <br>
+    <input formControlName="phone">
+  </label>
+  <div *ngIf="newGroup.get('phone')?.invalid && (newGroup.get('phone')?.dirty || newGroup.get('phone')?.touched)">
+    <div *ngIf="newGroup.get('phone')?.hasError('required')">Phone is required.</div>
+    <div *ngIf="newGroup.get('phone')?.hasError('pattern')">Invalid phone format.</div>
+  </div>
+  <br><br>
   
-<h2>Items List</h2>
-<app-shows [items]="items" (itemDeleted)="handleItemDeleted($event)"></app-shows>
+  <label>
+    Email:
+    <br>
+    <input formControlName="email">
+  </label>
+  <div *ngIf="newGroup.get('email')?.invalid && (newGroup.get('email')?.dirty || newGroup.get('email')?.touched)">
+    <div *ngIf="newGroup.get('email')?.hasError('required')">Email is required.</div>
+    <div *ngIf="newGroup.get('email')?.hasError('email')">Invalid email format.</div>
+  </div>
+  <br><br>
+
+  <button type="submit" [disabled]="!newGroup.valid">Submit</button>
+
+</form>
+
+
+
+<div *ngIf="isValid">
+<app-shows></app-shows>
+</div>
